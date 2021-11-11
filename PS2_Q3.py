@@ -34,18 +34,18 @@ demo_df_list = [demo_1112_df, demo_1314_df, demo_1516_df, demo_1718_df]
 cohort_list = ['1112', '1314', '1516', '1718']
 
 # create a block dataframe
-demo_comb_df = pd.DataFrame(columns = ('SEQN', 'RIDAGEYR', 'RIDRETH3', 'DMDEDUC2', 'DMDMARTL', \
+demo_comb_df = pd.DataFrame(columns = ('SEQN', 'RIDAGEYR', 'RIAGENDR', 'RIDRETH3', 'DMDEDUC2', 'DMDMARTL', \
                                'RIDSTATR', 'SDMVPSU', 'SDMVSTRA', 'WTMEC2YR', 'WTINT2YR'))
 
 for idx in range(len(demo_df_list)):
     df = demo_df_list[idx]
-    df_select = df.loc[:,['SEQN', 'RIDAGEYR', 'RIDRETH3', 'DMDEDUC2', 'DMDMARTL', \
+    df_select = df.loc[:,['SEQN', 'RIDAGEYR', 'RIAGENDR','RIDRETH3', 'DMDEDUC2', 'DMDMARTL', \
                                'RIDSTATR', 'SDMVPSU', 'SDMVSTRA', 'WTMEC2YR', 'WTINT2YR']]
     df_select['cohort'] = cohort_list[idx] 
     
     demo_comb_df = pd.concat([demo_comb_df, df_select], ignore_index=True) # concatenate each cohort
 
-demo_comb_df = demo_comb_df.rename(columns={'SEQN': 'unique_ids', 'RIDAGEYR':'age', 'RIDRETH3':'race_and_ethnicity', \
+demo_comb_df = demo_comb_df.rename(columns={'SEQN': 'unique_ids', 'RIDAGEYR':'age', 'RIAGENDR':'gender', 'RIDRETH3':'race_and_ethnicity', \
                         'DMDEDUC2':'education', 'DMDMARTL':'marital_status'})
 demo_comb_df= demo_comb_df.convert_dtypes() # Convert the DataFrame to use best possible dtypes.
 demo_comb_df.to_pickle("demo_comb_df.pkl")
@@ -97,7 +97,7 @@ oral_comb_df.to_pickle("oral_comb_df.pkl")
 # c) report the number of cases there are in the two datasets above.
 num_of_case_demo = len(demo_comb_df)
 num_of_case_oral = len(oral_comb_df)
-print("the number of cases in the demographic final dataframe is %d"%(num_of_case_demo))
+print("the number of cases in the demographic final dataframe is %d"%(num_of_case_demo)):
 print("the number of cases in the oral health and dentition data final dataframe is %d"%(num_of_case_oral))
 
 
