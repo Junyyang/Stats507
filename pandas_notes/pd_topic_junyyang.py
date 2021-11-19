@@ -13,16 +13,22 @@
 #     name: python3
 # ---
 
-# ---
-# Name: Junyuan Yang
+# ## Topics in Pandas
+# **Stats 507, Fall 2021** 
+#   
 #
-# UM email: junyyang@umich.edu
+# ## Contents
+# Add a bullet for each topic and link to the level 2 title header using 
+# the exact title with spaces replaced by a dash. 
 #
+# + [Windows Rolling](https://github.com/Junyyang/Stats507/blob/main/pandas_notes/pd_topic_junyyang.py) 
+# + [Topic 2 Title](#Topic-2-Title)
 
-# ---
-# Extract the code from PS4 Q0
-#
 # ## Windows Rolling
+# ---
+# **Name: Junyuan Yang**
+#
+# **UM email: junyyang@umich.edu**
 #
 # Return a rolling object allowing summary functions to be applied to windows of length n.
 # By default, the result is set to the right edge of the window. This can be changed to the center of the window by setting center=True.
